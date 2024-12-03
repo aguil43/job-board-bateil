@@ -29,6 +29,8 @@ dependencies {
     implementation 'com.mysql:mysql-connector-j:9.1.0'
 
     implementation 'io.github.cdimascio:java-dotenv:5.2.2'
+
+    implementation 'com.google.code.gson:gson:2.7'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
