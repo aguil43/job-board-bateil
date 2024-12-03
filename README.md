@@ -20,6 +20,8 @@ Desarrollo de una apliacion web de una bolsa de trabajo donde se podra ver y apl
 * ReadEnv - es la clase que se encarga de leer el archivo env y convertir los valores de la variables a sus tipos en java
 > HttpOpers - En esta carpeta se almacenaran las clases que involucren algo con algun tipo de operacion en http:
 > * Login - en esta clase se procesa la parte del inicio de sesion de los usuarios (unicamente el inicio de sesion no el registro)
+> * Offers - en esta clase se procesan las ofertas de trabajo para posteriormente enviarlas como respuesta json en una ruta de la api
+> * job - en esta clase se procesa la informacion de una oferta de trabajo especifica para despues enviarla como json en una ruta de la api
 
 
 > DbQueries - En esta carpeta se almacenaran las clases que involucren interaccion con la BD:
@@ -27,8 +29,15 @@ Desarrollo de una apliacion web de una bolsa de trabajo donde se podra ver y apl
 > * DbQuery - Esta clase se encarga de utilizar la conexion realizada con la clase anterior haciendo consultas SQL(solo usando la sentencia SELECT), esta clase no modifica la base de datos, unicamente la va a leer.
 
 ##### Rutas montadas hasta el momento :
-" / "  >  Pagina de inicio, aqui se mostrara la pagina principal del proyecto
-" /login " > Pagina de inicio de sesion, aqui el usuario podra acceder a su cuenta
+**Rutas con interfaz grafica:**
+" / "  >  Pagina de inicio, aqui se mostrara la pagina principal del proyecto (se monta el archivo index.html de la carpeta resources).
+" /register " > Pagina para mostrar los el menu de registro de usuarios (se monta el archivo sobreti.html de la carpeta resources).
+
+**Rutas de la API para realizar consultas**
+Todas las rutas de la API comienzan con el /api/ seguido del dato que solicitan
+" /api/auth " > Pagina de la api con metodo POST para realizar la autenticacion del usuario, unicamente regresa un valor de tipo booleano para indicar si la autenticacion es correcta o no.
+" /api/offers " > Pagina de la API con metodo GET para realizar la carga de los grupos de ofertas de trabajo que van de 10 puestos en 10 puestos, puede recibir un valor como parametro que es el numero de pagina, este valor es el "page", y es opcional, si se indica, manda las ofertas correspondientes a dicho grupo, si no se toma como la primer busqueda.
+" /api/job " > Pagina de la API con el metodo GET para realizar la carga de una oferta de trabajo especifica, cargando unicamente los datos de esta, esta como parametro obligatorio requiere "jobid" e indicar el id de la oferta, para asi mostrar los datos de dicha oferta.
 
 -------
 ### Dependencias:
