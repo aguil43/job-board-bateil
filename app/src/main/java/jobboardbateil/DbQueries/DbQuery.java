@@ -98,33 +98,45 @@ public class DbQuery {
         return m_data_str; 
     }
 
+    // This method do the query to know the lenght of a table, get as parameter the table name
     public int tableLength(String table){
+        // Do a connection with the database
         m_db.startDBConnection();
         m_statement = m_db.getStatatement();
+        // Make the query string, to do a query in the database
         m_query = "SELECT COUNT(*) as totalitems FROM jobboard." + table + ";";
         int len = 0;
         try{
+            // Execute the query to know what is the length of the table
             m_result = m_statement.executeQuery(m_query);
             m_result.next();
+            // Save the result in the var
             len = m_result.getInt(1);
         }catch(SQLException e){
+            // If the query have an error, return the code and the message
             System.out.println(e.getErrorCode() + ": " + e.getMessage());
         }finally{
+            // Close the connection with the db for good practices
             m_db.stopDBConnection();
         }
+        // return the length of the table
         return len;
     }
 
+    // This method return the json result of query at the table to create the pages of the jobs offers
+    // with the page is different of the first page
     public JsonArray groupData(int len, String table, int startAt){
+        // initialize the json array
         m_json = new JsonArray();
+        // iniatialize the db connection
         m_db.startDBConnection();
         m_statement = m_db.getStatatement();
+        // Make the query, for execute in the db
         m_query = "SELECT * FROM jobboard." + table + " LIMIT " + len + " OFFSET " + startAt + ";";
         try{
+            // Do the query in the db
             m_result = m_statement.executeQuery(m_query);
-            m_meta = m_result.getMetaData();
-            m_result.next();
-            m_data_str = new String[m_meta.getColumnCount()];
+            // Initialize the organizaion of the data in the json object
             while(m_result.next()){
                 JsonObject data = new JsonObject();
                 data.addProperty("offerid", m_result.getInt(1));
@@ -141,20 +153,30 @@ public class DbQuery {
                 m_json.add(data);
             }
         }catch(SQLException e){
+            // If the query fails show the error code and message
             System.out.println(e.getErrorCode() + ": " + e.getMessage());
         }finally{
+            // For good practice stop the db connection
             m_db.stopDBConnection();
         }
+        // return the json object data
         return m_json;
+        // ! aunque este metodo pida la tabla como argumento, por el bucle while solo funciona con la tabla
+        // ! de las ofertas de trabajo
     }
 
     public JsonArray groupData(int len, String table){
+        // Initialize the json object
         m_json = new JsonArray();
+        // Initialize the db connection
         m_db.startDBConnection();
         m_statement = m_db.getStatatement();
+        // Make the query, for execute in the db
         m_query = "SELECT * FROM jobboard." + table + " LIMIT " + len + ";";
         try{
+            // Do the query in the db
             m_result = m_statement.executeQuery(m_query);
+            // Initialize the organizaion of the data in the json object
             while(m_result.next()){
                 JsonObject data = new JsonObject();
                 data.addProperty("offerid", m_result.getInt(1));
@@ -171,11 +193,15 @@ public class DbQuery {
                 m_json.add(data);
             }
         }catch(SQLException e){
+            // If the query fails show the error code and message
             System.out.println(e.getErrorCode() + ": " + e.getMessage());
         }finally{
+            // return the json object data
             m_db.stopDBConnection();
         }
         return m_json;
+        // ! aunque este metodo pida la tabla como argumento, por el bucle while solo funciona con la tabla
+        // ! de las ofertas de trabajo
     }
 
 // Para escribir la fecha en la tabla usar la funcion curdate()
