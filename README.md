@@ -30,13 +30,19 @@ Desarrollo de una apliacion web de una bolsa de trabajo donde se podra ver y apl
 
 ##### Rutas montadas hasta el momento :
 **Rutas con interfaz grafica:**
+
 " / "  >  Pagina de inicio, aqui se mostrara la pagina principal del proyecto (se monta el archivo index.html de la carpeta resources).
+
 " /register " > Pagina para mostrar los el menu de registro de usuarios (se monta el archivo sobreti.html de la carpeta resources).
 
 **Rutas de la API para realizar consultas**
-Todas las rutas de la API comienzan con el /api/ seguido del dato que solicitan
+
+*Todas las rutas de la API comienzan con el /api/ seguido del dato que solicitan*
+
 " /api/auth " > Pagina de la api con metodo POST para realizar la autenticacion del usuario, unicamente regresa un valor de tipo booleano para indicar si la autenticacion es correcta o no.
+
 " /api/offers " > Pagina de la API con metodo GET para realizar la carga de los grupos de ofertas de trabajo que van de 10 puestos en 10 puestos, puede recibir un valor como parametro que es el numero de pagina, este valor es el "page", y es opcional, si se indica, manda las ofertas correspondientes a dicho grupo, si no se toma como la primer busqueda.
+
 " /api/job " > Pagina de la API con el metodo GET para realizar la carga de una oferta de trabajo especifica, cargando unicamente los datos de esta, esta como parametro obligatorio requiere "jobid" e indicar el id de la oferta, para asi mostrar los datos de dicha oferta.
 
 -------
