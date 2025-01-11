@@ -23,31 +23,30 @@
 
             <div class="container">
         <h1>Registro de Usuario</h1>
-        <form id="registroForm">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-
-            <label for="apellidoPaterno">Apellido Paterno:</label>
-            <input type="text" id="apellidoPaterno" name="apellidoPaterno" required>
-
-            <label for="apellidoMaterno">Apellido Materno:</label>
-            <input type="text" id="apellidoMaterno" name="apellidoMaterno" required>
+        <form id="registroForm" method="post" action="/api/register">
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" name="name" required>
 
             <label for="correo">Correo Electrónico:</label>
-            <input type="email" id="correo" name="correo" required>
+            <input type="email" id="correo" name="email" required>
+
+            <label for="correo">Contrasena:</label>
+            <input type="password" id="password" name="password" required>
 
             <label for="especialidad">Especialidad:</label>
-            <select id="especialidad" name="especialidad" required>
+            <select id="especialidad" name="speciality">
                 <option value="" disabled selected>Seleccione una opción</option>
-                <option value="electricidad">Electricidad</option>
-                <option value="mecatronica">Mecatrónica</option>
-                <option value="serviciosComputacionales">Servicios Computacionales e Informáticos</option>
-                <option value="maquinasHerramientas">Máquinas Herramientas</option>
-                <option value="maquinasCombustionInterna">Máquinas de Combustión Interna</option>
+                <option value="ELE">Electricidad</option>
+                <option value="MCA">Mecatrónica</option>
+                <option value="SCI">Servicios Computacionales e Informáticos</option>
+                <option value="MH">Máquinas Herramientas</option>
+                <option value="MCI">Máquinas de Combustión Interna</option>
+                <option value="na">No soy exalumno</option>
             </select>
 
             <button type="submit">Enviar</button>
         </form>
+        <p>Ya tienes cuenta <a href="/login">Inicia sesion</a></p>
     </div>
              
              <footer class="pie-pagina">

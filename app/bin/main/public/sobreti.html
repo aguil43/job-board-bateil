@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+		<link rel="stylesheet" type="text/css" href="css/sobreti.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images\bateil.png" alt="Logo" />
+        </div>
+        <nav>
+            <ul class="menu">
+            	<a href="/"> <li>inicio</li> </a>
+                <a href="#"> <li>Busqueda de puestos</li> </a>
+            </ul>
+        </nav>
+    </header>
+
+
+
+            <div class="container">
+        <h1>Registro de Usuario</h1>
+        <form id="registroForm" method="post" action="/api/register">
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" name="name" required>
+
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="email" required>
+
+            <label for="correo">Contrasena:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="especialidad">Especialidad:</label>
+            <select id="especialidad" name="speciality">
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option value="ELE">Electricidad</option>
+                <option value="MCA">Mecatrónica</option>
+                <option value="SCI">Servicios Computacionales e Informáticos</option>
+                <option value="MH">Máquinas Herramientas</option>
+                <option value="MCI">Máquinas de Combustión Interna</option>
+                <option value="na">No soy exalumno</option>
+            </select>
+
+            <button type="submit">Enviar</button>
+        </form>
+        <p>Ya tienes cuenta <a href="/login">Inicia sesion</a></p>
+    </div>
+             
+             <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="content-foo">
+                <h4>Contactanos</h4>
+                <p>CALZ. Cuauhtémoc 1480 Sur, <br>Jesus MA del Bosque, <br>Torreón, Coahuila</p>
+                <p>8717136941 y 7136931</p>
+                <p>informes@bateil.edu.mx</p>
+            </div>
+            <div class="content-foo">
+                <h4>Redes sociales</h4>
+                <br>
+                <a href="https://m.facebook.com/escuelabateil/"><img src="images/Face.png" alt="" class="link-store"></a>
+                <a href="https://twitter.com/bateil_org"><img src="images/Twit.png" alt="" class="link-store"></a>
+                <div class="final-linea"></div>
+            </div>
+            </div>
+        </div>
+        <h2 class="titulo-final">&copy; DTRS º2023 Derechos Reservados | BATEIL</h2>
+    </footer>
+</body>
+</html>

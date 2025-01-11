@@ -71,7 +71,7 @@ li {
 .carousel-image {
     width: 600px;
     height: 300px;
-    object-fit: cover;
+    background: black;
 }
 
 .buttons {
@@ -131,7 +131,7 @@ div {
 .pie-pagina .grupo-1 .box h2
 {
 	color: #FFF;
-	margin bottom: 25px;
+	margin-bottom: 25px;
 	font-size: 20px;
 }
 .pie-pagina .grupo-1 .box p
@@ -204,6 +204,25 @@ h4 {
     margin: 20px 0 0 0;
     color: #9e9797;
 }
+
+.joboffer{
+    background: green;
+    width: 350px;
+    height: 25vh;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    margin: 2vh 1vw;
+}
+
+#DOMElements{
+    display: grid;
+    grid-auto-columns: auto;
+}
+
 @media screen and (max-width:800px)
 {
 .pie-pagina .grupo-1

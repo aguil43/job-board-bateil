@@ -108,6 +108,7 @@ label {
 
 input[type="text"],
 input[type="email"],
+input[type="password"],
 select {
     width: 100%;
     padding: 10px;
@@ -174,7 +175,7 @@ div {
 .pie-pagina .grupo-1 .box h2
 {
     color: #FFF;
-    margin bottom: 25px;
+    margin-bottom: 25px;
     font-size: 20px;
 }
 .pie-pagina .grupo-1 .box p

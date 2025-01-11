@@ -85,6 +85,7 @@ public class DbQuery {
             // and save this in the array
             for(int i = 0; i < m_meta.getColumnCount(); i++){
                 m_data_str[i] = m_result.getString(i+1);
+                System.out.println(m_data_str[i]);
             }
         }catch(SQLException e){
             // If the query fails, show the message error in terminal, and declare the object result as null

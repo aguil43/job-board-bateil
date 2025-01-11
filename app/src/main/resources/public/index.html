@@ -13,7 +13,7 @@
         </div>
         <nav>
             <ul class="menu">
-                <a href="#"> <li>Busqueda de puestos</li> </a>
+                <a href="#" onclick="getSchoolars()"><li>Busqueda de puestos</li> </a>
                 <a href="/register"> <li>Cuentanos sobre ti</li> </a>
             </ul>
         </nav>
@@ -21,14 +21,19 @@
      
     <div class="carousel">
         <div class="images">
-            <img src="" alt="Imagen 1" class="carousel-image">
-            <img src="" alt="Imagen 2" class="carousel-image">
-            <img src="" alt="Imagen 3" class="carousel-image">
+            <img src="images/bateil.png" alt="Imagen 1" class="carousel-image">
+            <img src="images/bateil.png" alt="Imagen 2" class="carousel-image">
+            <img src="images/bateil.png" alt="Imagen 3" class="carousel-image">
         </div>
         <div class="buttons">
             <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
             <button class="next" onclick="moveSlide(1)">&#10095;</button>
         </div>
+    </div>
+
+    <div id="DOMElements">
+        <h2 id="welcome">Bienvenido</h2>
+
     </div>
 
     <footer class="pie-pagina">
@@ -53,6 +58,7 @@
 
 
     <script src="js/script.js"></script>
+    <script src="js/jobOffers.js"></script>
 
 </body>
 </html>

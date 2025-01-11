@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ddc51e;
+    color: white;
+    padding: 10px 20px;
+}
+
+.logo img {
+   height: 75px;
+	width: 172px;
+	position: relative;
+	bottom: -1px; 
+}
+
+nav {
+    display: flex;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+}
+
+.menu li {
+    margin: 0 20px;
+}
+li {
+	color: white;
+}
+.menu li a {
+    color: #d7d7c8;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.menu li a:hover {
+    color: #4CAF50; 
+}
+.carousel {
+    position: relative;
+    width: 600px;
+    height: 300px;
+    margin: 50px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-image {
+    width: 600px;
+    height: 300px;
+    background: black;
+}
+
+.buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+footer {
+    background: #414141;
+    padding: 60px 0 30px 0;
+    margin: auto;
+    overflow: hidden;
+}
+.pie-pagina
+{
+	 width: 100%;
+	 background-color: #414141;
+}
+.pie-pagina .grupo-1
+{
+	width: 100%;
+	max-width: 1200px;
+	margin: auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 50px;
+	padding: 45px 0px;
+}
+.content-foo {
+    text-align: center;
+}
+.link-store {
+    height: 70px;
+}
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+.pie-pagina .grupo-1 .box h2
+{
+	color: #FFF;
+	margin-bottom: 25px;
+	font-size: 20px;
+}
+.pie-pagina .grupo-1 .box p
+{
+	color: #9e9797;
+	margin-bottom: 10px;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+.contenedor-footer p {
+    padding: 4px;
+}
+.contenedor-footer {
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    margin: auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #ccc;
+}
+.content-foo h4 {
+    color: #fff;
+    border-bottom: 3px solid #ddc51e;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+.content-foo p {
+    color: #ccc;
+}
+.pie-pagina .grupo-1 .red-social a:hover
+{
+	display: inline-block;
+	text-decoration: none;
+	width: 45px;
+	height: 45px;
+	line-height: 45px;
+	color: #FFF;
+	margin-right: 10px;
+	background-color: #0d2033;
+	text-align: center;
+	transition: all 300ms ease;
+}
+.pie-pagina .grupo-1 .red-social a:hover
+{
+	color: aqua;
+}
+.titulo-final {
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0 0 0;
+    color: #9e9797;
+}
+
+.joboffer{
+    background: green;
+    width: 350px;
+    height: 25vh;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    margin: 2vh 1vw;
+}
+
+#DOMElements{
+    display: grid;
+    grid-auto-columns: auto;
+}
+
+@media screen and (max-width:800px)
+{
+.pie-pagina .grupo-1
+{
+	width: 90%;
+	grid-template-columns: repeat(1, 1fr);
+	grid-gap: 30px;
+	padding: 35px 0px;
+}
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu {
+        flex-direction: column;
+    }
+
+    .menu li {
+        margin: 10px 0;
+    }
+
+    .logo img {
+        height: 30px; /* Reduce el tamaño del logo en pantallas pequeñas */
+    }
+}
