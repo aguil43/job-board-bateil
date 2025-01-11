@@ -37,10 +37,7 @@ public class App {
         /* Declarations of the endpoints with differents http methods
          * endpoint with get method
          */
-        // This endpoint was modified to mount the selected html file, in this path
-        /*app.get("/login", ctx -> {
-            ctx.result("ingrese credenciales");
-        });*/
+
         // API ROUTES
         // All the API route have the prefix api in their path
 
@@ -51,7 +48,8 @@ public class App {
             if(Boolean.parseBoolean(res[0])){ // Redirect to the correct app, depending if the auth process is succesful or not
                 // If the auth process is true, add te cookies in the nav, and redirect, to the / path
                 //ctx.cookie("isAuth", res[0], -1);
-                ctx.cookie("name", res[1], -1);
+                String[] sep = res[1].split(" ");
+                ctx.cookie("name", sep[0], -1);
                 //ctx.result(Boolean.toString(res));
                 ctx.redirect("/");
             }else{

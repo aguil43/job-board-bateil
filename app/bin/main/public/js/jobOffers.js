@@ -47,3 +47,8 @@ function charge(i){
     </section>`
     space.innerHTML += format;
 }
+
+function logout(){
+    window.location.reload();
+    document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
