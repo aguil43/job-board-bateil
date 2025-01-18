@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+		<link rel="stylesheet" type="text/css" href="css/sobreti.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images\bateil.png" alt="Logo" />
+        </div>
+        <nav>
+            <ul class="menu">
+            	<a href="/"> <li>inicio</li> </a>
+                <a href="#"> <li>Busqueda de puestos</li> </a>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <div class="container">
+        <h1>Registro de Usuario</h1>
+        <form id="registroForm" method="post" action="/api/add">
+            <label for="name">Nombre del puesto:</label>
+            <input type="text" id="correo" name="name" required>
+            <label for="location">Ubicacion:</label>
+            <input type="text" id="correo" name="location" required>
+            <label for="journey">Jornada laboral:</label>
+            <select id="especialidad" name="journey">
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option value="completo">Tiempo completo</option>
+                <option value="medio">Medio tiempo</option>
+            </select>
+            <label for="category">Categoria:</label>
+            <input type="text" id="correo" name="category" required>
+            <label for="description">Descripcion del empleo:</label>
+            <input type="text" id="correo" name="description" required>
+            <label for="responsabilities">Responsabilidades:</label>
+            <input type="text" id="correo" name="responsabilities" required>
+            <label for="experience">Experiencia:</label>
+            <input type="text" id="correo" name="experience" required>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+             
+             <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="content-foo">
+                <h4>Contactanos</h4>
+                <p>CALZ. Cuauhtémoc 1480 Sur, <br>Jesus MA del Bosque, <br>Torreón, Coahuila</p>
+                <p>8717136941 y 7136931</p>
+                <p>informes@bateil.edu.mx</p>
+            </div>
+            <div class="content-foo">
+                <h4>Redes sociales</h4>
+                <br>
+                <a href="https://m.facebook.com/escuelabateil/"><img src="images/Face.png" alt="" class="link-store"></a>
+                <a href="https://twitter.com/bateil_org"><img src="images/Twit.png" alt="" class="link-store"></a>
+                <div class="final-linea"></div>
+            </div>
+            </div>
+        </div>
+        <h2 class="titulo-final">&copy; DTRS º2023 Derechos Reservados | BATEIL</h2>
+    </footer>
+</body>
+</html>

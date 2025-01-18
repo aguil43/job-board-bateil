@@ -1,6 +1,7 @@
 package jobboardbateil;
 
 import io.javalin.Javalin;
+import jobboardbateil.HttpOpers.Add;
 import jobboardbateil.HttpOpers.Job;
 import jobboardbateil.HttpOpers.Login;
 import jobboardbateil.HttpOpers.Offers;
@@ -19,7 +20,9 @@ public class App {
 
         Register register = new Register();
 
-        // Mount of the web server, in the port 9000
+        Add add = new Add();
+
+        // Mount of the web server, in the port 8070
         var app = Javalin.create(config -> {
             
             config.bundledPlugins.enableCors(cors -> {
@@ -30,6 +33,7 @@ public class App {
             // Config the route of the static files, this files are of type css and js
             config.staticFiles.add("/public");
             // Config the path host for show the selected html files
+            config.spaRoot.addFile("/register-job", "public/create.html");
             config.spaRoot.addFile("/register", "public/sobreti.html");
             config.spaRoot.addFile("/login", "public/login.html");
             config.spaRoot.addFile("/", "public/index.html");
@@ -110,6 +114,18 @@ public class App {
             }else{
                 // If register is failed redirect again to the register
                 ctx.redirect("/register");
+            }
+        });
+
+        // The path /api/add, is used to register new job offers, getting the params needed to register new job offers
+        app.post("/api/add", ctx -> {
+            // Params: name, location, journey, category, description, responsabilities, experience
+            String[] data = {ctx.formParam("name"), ctx.formParam("location"), ctx.formParam("journey"), ctx.formParam("category"), ctx.formParam("description"), ctx.formParam("responsabilities"), ctx.formParam("experience")};
+            // Add the offer to the db
+            boolean status = add.addJob("joboffers", data);
+            // check and redirect, if the register is sucessful
+            if(status){
+                ctx.redirect("/register-job");
             }
         });
     }

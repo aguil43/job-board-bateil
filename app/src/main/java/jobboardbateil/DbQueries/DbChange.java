@@ -51,4 +51,25 @@ public class DbChange {
         // I have arreror is false
         return isEnd;
     }
+
+    // Method to execute the query in the db
+    public boolean addQuery(String query){
+        // Declare the status of the interaction as false 
+        isEnd = false;
+        // Start the connection with the db
+        m_db.startDBConnection();
+        // Get the statement to do te interaction with the db
+        m_statement = m_db.getStatatement();
+        // Try the execution of the sql sentence
+        try{
+            m_statement.executeUpdate(query);
+            // Update the boolean status of the interaction
+            isEnd = true;
+        }catch(SQLException e){
+            // Show if the interaction have a problem
+            System.out.println(e.getErrorCode() + e.getMessage());
+        }
+        // return the status of the interaction
+        return isEnd;
+    }
 }
