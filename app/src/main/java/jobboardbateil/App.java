@@ -53,7 +53,9 @@ public class App {
                 // If the auth process is true, add te cookies in the nav, and redirect, to the / path
                 //ctx.cookie("isAuth", res[0], -1);
                 String[] sep = res[1].split(" ");
+                //ctx.cookie("id", sep[1], -1);
                 ctx.cookie("name", sep[0], -1);
+                ctx.cookie("id", res[3], -1);
                 //ctx.result(Boolean.toString(res));
                 ctx.redirect("/");
             }else{
@@ -126,6 +128,15 @@ public class App {
             // check and redirect, if the register is sucessful
             if(status){
                 ctx.redirect("/register-job");
+            }
+        });
+
+        app.get("/api/check", ctx -> {
+            int value = Integer.parseInt(ctx.cookie("id"));
+            if(value == 1){
+                ctx.redirect("/register-job");
+            }else{
+                ctx.redirect("/");
             }
         });
     }

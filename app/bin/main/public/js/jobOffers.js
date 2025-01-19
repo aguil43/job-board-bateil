@@ -5,6 +5,10 @@ if(username){
     welcome.innerText += " " + username.toUpperCase();
 }
 
+function adminBtn(){
+    window.location.href = "/api/check"
+}
+
 let datas
 let space = document.getElementById("DOMElements");
 
@@ -51,4 +55,5 @@ function charge(i){
 function logout(){
     window.location.reload();
     document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }

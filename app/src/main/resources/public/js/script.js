@@ -13,3 +13,9 @@ function moveSlide(step) {
     const newTransform = -currentIndex * 600;
     document.querySelector('.images').style.transform = `translateX(${newTransform}px)`;
 }
+
+const id = document.cookie.split("; ").find((row) => row.startsWith("id="))?.split("=")[1];
+if(id == 1){
+    let html = '<button onclick=adminBtn()> Agregar oferta <button>';
+    document.getElementById("needBtns").innerHTML += html;
+}
