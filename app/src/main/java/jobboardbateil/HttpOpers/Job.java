@@ -24,7 +24,7 @@ public class Job {
         // Create the string array to save the query
         String[] data = m_jobQuery.get_data_str("" + jobid, "joboffers", "jobofferid");
         // Array of the datum name
-        String[] namedata = {"jobid", "compid", "profileid", "name", "location", "date", "journey", "category", "description", "responsabilities", "experiences"};
+        String[] namedata = {"jobid", "compid", "profileid", "name", "location", "date", "journey", "category", "description", "responsabilities", "experiences", "isAvailable"};
         // Check if the two past arrays have the same length
         if(data.length == namedata.length){
             // Organaize the key value, json data in the json object

@@ -23,7 +23,7 @@ public class Add {
             }else{
                 // Check what is the correct structure for add or end the current data
                 if(i == data.length){
-                    query = query + "'" + data[i - 1] + "');";
+                    query = query + "'" + data[i - 1] + "'," + " True);";
                 }else if(i > 2){
                     query = query + "'" + data[i - 1] + "', ";
                 }else{

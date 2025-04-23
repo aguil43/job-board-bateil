@@ -36,6 +36,7 @@ public class App {
             config.spaRoot.addFile("/register-job", "public/create.html");
             config.spaRoot.addFile("/register", "public/sobreti.html");
             config.spaRoot.addFile("/login", "public/login.html");
+            config.spaRoot.addFile("/job", "public/job.html");
             config.spaRoot.addFile("/", "public/index.html");
         }).start(env.getIntVar("WEB_SERVER_PORT"));
         /* Declarations of the endpoints with differents http methods
@@ -84,6 +85,12 @@ public class App {
             }
             // Return the result in a string
             ctx.json(res);
+        });
+
+        app.exception(Exception.class, (e, ctx) -> {
+            e.printStackTrace();
+            ctx.status(500);
+            ctx.result("Error en el servidor: " + e.getMessage());
         });
 
         // The path /api/job, search an especific job offer info in the db

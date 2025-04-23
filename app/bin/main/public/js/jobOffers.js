@@ -47,9 +47,34 @@ function charge(i){
     <h3 class="jobSub">Ciudad: ${datas[i]['location']}</h3>
     <h3 class="jobSub">Jornada: ${datas[i]['journey']}</h3>
     <p class="jobInfo">Descripcion: ${datas[i]['description']}</p>
-    <button class="jobBtn">Aplicar</button>
+    <button class="jobBtn" onclick="chargejob(${datas[i]['offerid']})">Aplicar</button>
     </section>`
     space.innerHTML += format;
+}
+
+/*function chargejob(id){
+    fetch("/api/job?jobid=1")
+    .then(Response => {
+        const content = Response.headers.get('Content-Type');
+        console.log(content);
+        if(content && content.includes('application/json')){
+            return Response.json();
+        }else{
+            throw new Error('The resonse isn\'t json');
+        }
+    })
+    .then(data => {
+        datas = data;
+        console.log(data)
+    }).catch(error => console.error("Error al leer los datos", error))
+}*/
+
+function chargejob(id){
+    if(id == 1){
+        window.location = "/job?jobid=" + id + "&edit=true";
+    }else{
+        window.location = "/job?jobid=" + id;
+    }
 }
 
 function logout(){

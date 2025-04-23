@@ -105,7 +105,7 @@ public class DbQuery {
         m_db.startDBConnection();
         m_statement = m_db.getStatatement();
         // Make the query string, to do a query in the database
-        m_query = "SELECT COUNT(*) as totalitems FROM jobboard." + table + ";";
+        m_query = "SELECT COUNT(*) as totalitems FROM jobboard." + table + " WHERE isAvailable=True;";
         int len = 0;
         try{
             // Execute the query to know what is the length of the table
@@ -133,7 +133,7 @@ public class DbQuery {
         m_db.startDBConnection();
         m_statement = m_db.getStatatement();
         // Make the query, for execute in the db
-        m_query = "SELECT * FROM jobboard." + table + " LIMIT " + len + " OFFSET " + startAt + ";";
+        m_query = "SELECT * FROM jobboard." + table + " WHERE isAvailable=1 LIMIT " + len + " OFFSET " + startAt + " ;";
         try{
             // Do the query in the db
             m_result = m_statement.executeQuery(m_query);
@@ -173,7 +173,7 @@ public class DbQuery {
         m_db.startDBConnection();
         m_statement = m_db.getStatatement();
         // Make the query, for execute in the db
-        m_query = "SELECT * FROM jobboard." + table + " LIMIT " + len + ";";
+        m_query = "SELECT * FROM jobboard." + table + " WHERE isAvailable=1 LIMIT " + len + ";";
         try{
             // Do the query in the db
             m_result = m_statement.executeQuery(m_query);
