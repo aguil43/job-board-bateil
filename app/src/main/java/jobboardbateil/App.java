@@ -2,6 +2,7 @@ package jobboardbateil;
 
 import io.javalin.Javalin;
 import jobboardbateil.HttpOpers.Add;
+import jobboardbateil.HttpOpers.DeleteJob;
 import jobboardbateil.HttpOpers.Job;
 import jobboardbateil.HttpOpers.Login;
 import jobboardbateil.HttpOpers.Offers;
@@ -17,6 +18,8 @@ public class App {
         Offers offers = new Offers();
 
         Job job = new Job();
+
+        DeleteJob delete = new DeleteJob();
 
         Register register = new Register();
 
@@ -142,6 +145,21 @@ public class App {
             int value = Integer.parseInt(ctx.cookie("id"));
             if(value == 1){
                 ctx.redirect("/register-job");
+            }else{
+                ctx.redirect("/");
+            }
+        });
+
+        app.get("/api/delete", ctx -> {
+            int userId = Integer.parseInt(ctx.cookie("id"));
+            if(userId == 1){
+                int jobId = Integer.parseInt(ctx.queryParam("jobid"));
+                String url = "/";
+                boolean status = delete.deleteJob(jobId);
+                if(!status){
+                    url = "/job?jobid=" + jobId + "&edit=true";
+                }
+                ctx.redirect(url);
             }else{
                 ctx.redirect("/");
             }

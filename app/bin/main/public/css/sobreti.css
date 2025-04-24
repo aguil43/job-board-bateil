@@ -247,15 +247,19 @@ h4 {
     font-size: 24px;
     margin: 20px 0 0 0;
     color: #9e9797;
-}@media screen and (max-width:800px)
-{
-.pie-pagina .grupo-1
-{
-    width: 90%;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 30px;
-    padding: 35px 0px;
 }
+#delete{
+    display: none;
+    text-align: center;
+}
+@media screen and (max-width:800px){
+    .pie-pagina .grupo-1
+    {
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+        padding: 35px 0px;
+    }
 }
 @media (max-width: 768px) {
     header {

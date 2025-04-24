@@ -1,5 +1,7 @@
 const welcome = document.getElementById("welcome");
 const username = document.cookie.split("; ").find((row) => row.startsWith("name="))?.split("=")[1];
+const userid = document.cookie.split("; ").find((row) => row.startsWith("id="))?.split("=")[1];
+
 if(username){
     console.log("Bienvenid@ " + username);
     welcome.innerText += " " + username.toUpperCase();
@@ -70,7 +72,7 @@ function charge(i){
 }*/
 
 function chargejob(id){
-    if(id == 1){
+    if(userid == 1){
         window.location = "/job?jobid=" + id + "&edit=true";
     }else{
         window.location = "/job?jobid=" + id;

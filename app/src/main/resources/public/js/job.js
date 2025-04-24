@@ -1,4 +1,4 @@
-const id = location.href.split("?").find((row) => row.startsWith("jobid="))?.split("=")[1];
+const id = location.href.split("?")[1].split("&").find((row) => row.startsWith("jobid="))?.split("=")[1];
 const userid = document.cookie.split("; ").find((row) => row.startsWith("id="))?.split("=")[1];
 const editOption = location.href.split("&").find((row) => row.startsWith("edit="))?.split("=")[1];
 const fetchedUrl = "/api/job?jobid=" + id;
@@ -34,6 +34,7 @@ function dat(){
     const resp = document.getElementById("resp");
     const exp = document.getElementById("exp");
     const form = document.getElementById("registroForm");
+    const deleteJob = document.getElementById("delete");
 
     empleo.value = datas['name'];
     ubicacion.value = datas['location'];
@@ -54,5 +55,14 @@ function dat(){
         desc.disabled = false;
         resp.disabled = false;
         exp.disabled = false;
+        deleteJob.style.display = "flex";
+        deleteJob.disabled = false;
+    }
+}
+
+function deleteButton(){
+    if(userid === "1" & editOption === "true"){
+        url = "/api/delete?jobid=" + id;
+        window.location = url;
     }
 }
