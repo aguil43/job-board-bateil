@@ -46,7 +46,7 @@ function dat(){
     exp.value = datas['experiences'];
 
     if(userid === "1" & editOption === "true"){
-        form.action = "/api/edit"
+        form.action = "/api/edit?jobid="+id;
         empleo.disabled = false;
         ubicacion.disabled = false;
         fecha.disabled = false;

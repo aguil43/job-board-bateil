@@ -164,5 +164,21 @@ public class App {
                 ctx.redirect("/");
             }
         });
+
+        app.post("/api/edit", ctx -> {
+            int userId = Integer.parseInt(ctx.cookie("id"));
+            int jobId = Integer.parseInt(ctx.queryParam("jobid"));
+            String url = "/job?jobid=" + jobId + "&edit=true";
+            if(userId == 1){
+                String[] newData = {ctx.formParam("empleo"), ctx.formParam("ubicacion"), ctx.formParam("fecha"), ctx.formParam("jornada"), ctx.formParam("categoria"), ctx.formParam("desc"), ctx.formParam("resp"), ctx.formParam("exp")};
+                if(job.editJob(jobId, newData)){
+                    System.out.println("Datos modoficado");
+                    url = "/";
+                }
+                ctx.redirect(url);
+            }else{
+                ctx.redirect("/login");
+            }
+        });
     }
 }

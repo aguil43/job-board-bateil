@@ -65,9 +65,9 @@ public class DbChange {
             m_statement.executeUpdate(query);
             // Update the boolean status of the interaction
             isEnd = true;
-        }catch(SQLException e){
+        }catch(Exception e){
             // Show if the interaction have a problem
-            System.out.println(e.getErrorCode() + e.getMessage());
+            System.out.println(e.getMessage());
         }
         // return the status of the interaction
         return isEnd;
