@@ -36,6 +36,7 @@ function dat(){
     const form = document.getElementById("registroForm");
     const deleteJob = document.getElementById("delete");
 
+    form.action = "/send/request?jobName=" + datas['name'];
     empleo.value = datas['name'];
     ubicacion.value = datas['location'];
     fecha.value = datas['date'];

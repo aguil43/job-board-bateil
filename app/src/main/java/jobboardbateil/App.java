@@ -7,6 +7,7 @@ import jobboardbateil.HttpOpers.Job;
 import jobboardbateil.HttpOpers.Login;
 import jobboardbateil.HttpOpers.Offers;
 import jobboardbateil.HttpOpers.Register;
+import jobboardbateil.HttpOpers.Sender;
 
 public class App {
     public static void main(String[] args) {
@@ -60,6 +61,7 @@ public class App {
                 //ctx.cookie("id", sep[1], -1);
                 ctx.cookie("name", sep[0], -1);
                 ctx.cookie("id", res[3], -1);
+                ctx.cookie("mail", res[4]);
                 //ctx.result(Boolean.toString(res));
                 ctx.redirect("/");
             }else{
@@ -172,12 +174,20 @@ public class App {
             if(userId == 1){
                 String[] newData = {ctx.formParam("empleo"), ctx.formParam("ubicacion"), ctx.formParam("fecha"), ctx.formParam("jornada"), ctx.formParam("categoria"), ctx.formParam("desc"), ctx.formParam("resp"), ctx.formParam("exp")};
                 if(job.editJob(jobId, newData)){
-                    System.out.println("Datos modoficado");
                     url = "/";
                 }
                 ctx.redirect(url);
             }else{
                 ctx.redirect("/login");
+            }
+        });
+
+        app.post("/send/request", ctx -> {
+            Sender sender = new Sender(ctx.cookie("name"), ctx.queryParam("jobName"), ctx.cookie("mail"));
+            if(sender.getStatus()){
+                ctx.html("<script>alert('Solicitud recibida con exito espere nuestra respuesta'); window.location.href='/';</script>");
+            }else{
+                ctx.html("<script>alert('Error al procesar la solicitud intente mas tarde'); window.location.href='/';</script>");
             }
         });
     }

@@ -18,7 +18,7 @@ public class Login {
     
     public Login(){
         conn = new DbQuery();
-        m_isAuth = new String[4];
+        m_isAuth = new String[5];
     }
 
     // This method check if the strings saves the same text, and return the status of the user, and the data of the user
@@ -40,6 +40,7 @@ public class Login {
                 m_isAuth[1] = creds[1];
                 m_isAuth[2] = creds[2];
                 m_isAuth[3] = creds[0];
+                m_isAuth[4] = m_inputEmail;
             }
         }
         // Return the status of the user
